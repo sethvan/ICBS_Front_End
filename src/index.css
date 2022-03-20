@@ -16,3 +16,110 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.navbar-text {
+  color: "darkblue";
+}
+
+.reuniones {
+  color: bisque;
+  font-weight: 600;
+}
+
+.clave-label {
+  background-color: aquamarine;
+  padding: 2px;
+  padding-right: 4px;
+}
+
+.clave {
+  margin-top: 2em;
+}
+
+.clave-input {
+  width: 14em;
+}
+
+.editor-buttons {
+  margin-bottom: 1em;
+}
+
+.editor-button {
+  margin-right: 0.5em;
+}
+.editor-div {
+  background-color: white;
+}
+
+.title-input {
+  margin-bottom: 1em;
+}
+.footer-name-span {
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.footer-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-link-divider {
+  display: inline-block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+@media (max-width: 390px) {
+  .footer-link-divider {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+@media (max-width: 335px) {
+  .footer-link-divider {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+  }
+}
+
+/* .teachings-card {
+  margin-bottom: 2em;
+  border-radius: 10px;
+} */
+
+.clave-incorrecto {
+  color: #ee3127;
+  background-color: pink;
+  max-width: 15em;
+}
+
+.card {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  padding: 14px 18px 14px 18px;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 100%;
+    padding: 0;
+    margin: 2px;
+  }
+}
+
+@media (min-width: 576px) {
+  .card {
+    min-width: 400px;
+  }
+}

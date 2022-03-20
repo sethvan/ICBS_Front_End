@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import updateNavBar from "../../Actions/updateNavBar";
-import { bindActionCreators } from "redux";
 
 class NavBar extends Component {
+  componentDidUpdate() {
+    const path = this.props.pathname;
+    const navbarEndpoints = [
+      "/",
+      "/quienes_somos",
+      "/estudios",
+      "/reuniones",
+      "/eventos",
+    ];
+    const hamburger = document.querySelector("#hamburger");
+    if (navbarEndpoints.includes(path) && this.props.history.action !== "POP") {
+      hamburger.click();
+    }
+  }
+
   render() {
     return (
       <nav
@@ -13,9 +25,10 @@ class NavBar extends Component {
       >
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
-            Iglesia Cristiana Bautista Sinai
+            Iglesia Cristiana Bautista Sinaí
           </Link>
           <button
+            id="hamburger"
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -26,8 +39,8 @@ class NavBar extends Component {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+          <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div className="navbar-nav ">
               <Link className="nav-link" to="/">
                 Inicio
               </Link>
@@ -35,13 +48,13 @@ class NavBar extends Component {
                 Conocenos
               </Link>
               <Link className="nav-link" to="/estudios">
-                Devocionales
+                Enseñanzas
               </Link>
               <Link className="nav-link" to="/reuniones">
                 Reuniones
               </Link>
-              <Link className="nav-link" to="/proximos_eventos">
-                Proximos Eventos
+              <Link className="nav-link" to="/eventos">
+                Eventos y Anuncios
               </Link>
             </div>
           </div>
@@ -51,19 +64,4 @@ class NavBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    navBarData: state.navBar,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      updateNavBar: updateNavBar,
-    },
-    dispatch
-  );
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;

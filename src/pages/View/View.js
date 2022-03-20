@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import NavBar from "../../utility/NavBar/NavBar";
-import Footer from "../../utility/Footer/Footer";
+import { Route, Switch } from "react-router-dom";
 import QuienesSomos from "../QuienesSomos/QuienesSomos";
 import Reuniones from "../Reuniones/Reuniones";
-import Creencias from "../Creencias/Creencias";
-import ProximosEventos from "../ProximosEventos/ProximosEventos";
+import EstudioRoutes from "../Estudios/EstudioRoutes";
+import EditorPage from "../../Editor/EditorPage";
+import Rendered from "../../Editor/Rendered";
+import Admin from "../Admin/Admin";
+import NotFound from "./NotFound";
 
-class View extends Component {
-  render() {
-    if (this.props.location.pathname === "/") return null;
-
-    return (
-      <>
-        <NavBar />
-        <div className="d-flex flex-column vh-100 m-0 p-0">
-          <div className="container mt-5">
-            <Route exact path="/creencias" component={Creencias} />
-            <Route exact path="/quienes_somos" component={QuienesSomos} />
-            <Route exact path="/reuniones" component={Reuniones} />
-            <Route exact path="/proximos_eventos" component={ProximosEventos} />
-          </div>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+function View() {
+  return (
+    <>
+      <div className="container mt-sm-5 mt-4 mb-sm-3 mb-0">
+        <Switch>
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/quienes_somos" component={QuienesSomos} />
+          <Route exact path="/reuniones" component={Reuniones} />
+          <Route exact path="/creencias/edit" component={EditorPage} />
+          <Route exact path="/creencias" component={Rendered} />
+          <Route exact path="/eventos/edit" component={EditorPage} />
+          <Route exact path="/eventos" component={Rendered} />
+          <Route exact path="/sermones/new" component={EditorPage} />
+          <Route path="/estudios" component={EstudioRoutes} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </div>
+    </>
+  );
 }
 
 export default View;

@@ -1,3 +1,16 @@
 .conocenos-contenido {
-  font-size: 22px;
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: bisque;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.QS-Imagenes {
+  margin-bottom: 24px;
+}
+
+.QS-Title {
+  color: bisque;
+  font-weight: 600;
 }

@@ -1,9 +1,7 @@
 import react, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { connect } from "react-redux";
-import updateHome from "../../Actions/updateHome";
-import { bindActionCreators } from "redux";
+
 
 class Home extends Component {
   render() {
@@ -26,13 +24,10 @@ class Home extends Component {
             </div>
           </header>
           <main className="px-3">
-            <h1>Iglesia Cristiana Bautista Sinaí</h1>
+            <h1>¡Bienvenidos a la Iglesia Cristiana Bautista Sinaí!</h1>
             <p className="lead">
-              Bienvenidos a la Iglesia Bautista Sinaí! <br />
-              Juan 5:39 <br />
-              "Escudriñad las Escrituras; <br />
-              porque a vosotros os parece que en ellas tenéis la vida eterna; y
-              ellas son las que dan testimonio de mí;"
+              "Nosotros lo amamos a él porque él nos amó primero.""
+              <br />- 1 Juan 4:19
             </p>
             <Link
               to="/quienes_somos"
@@ -51,32 +46,4 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  // mapStateToProps returns an object, with:
-  // property is the local prop name to this component
-  // value will be the property in the root reducer... ie, a piece of the store
-  return {
-    homeData: state.home,
-  };
-}
-
-// mapDispatchToProps is how we tie our component to the dispatch
-// It takes 1 arg: dispatch
-function mapDispatchToProps(dispatch) {
-  // this function returns, bindActionCreators
-  // and we hand bindActionCreators an object:
-  // each property will be a local prop
-  // each value will be a function that is dispatch when run
-  //2nd arg or bindActionCreators is teh dispatch
-  return bindActionCreators(
-    {
-      updateHome: updateHome,
-    },
-    dispatch
-  );
-}
-
-// connect takes 2 args, the first one is a function that is going to map
-// a piece of redux state to this components props
-// 2nd arg to connect: mapDispatchToProps
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

@@ -1,0 +1,49 @@
+.Estudio-Show .render-title {
+  color: bisque;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* body {
+  background-color: cornflowerblue;
+} */
+
+.Estudio-Show #text-here {
+  width: 100%;
+  max-height: 700px;
+  font-size: 16px;
+  line-height: 1;
+  color: black;
+  font-weight: 300;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  /* border: 1px solid rgb(100, 100, 100); */
+  overflow: scroll;
+  background-color: aliceblue;
+
+  padding-top: 3%;
+}
+
+.Estudio-Show #bottom {
+  text-align: center;
+  margin-top: 14px;
+  height: 48px;
+  width: 100%;
+}
+/* 
+.Estudio-Show pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+} */
+
+#editorjs .codex-editor .codex-editor__redactor {
+  padding-bottom: 20px;
+}
+
+.Estudio-Show .editor-button {
+  margin-right: 0.75em;
+}
