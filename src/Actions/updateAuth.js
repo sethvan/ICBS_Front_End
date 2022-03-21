@@ -1,11 +1,6 @@
-
-
-
-export default (collections) => {
-
-  
+export default (isAdminView) => {
   return {
     type: "updateAuth",
-    payload: collections,
+    payload: isAdminView,
   };
 };
