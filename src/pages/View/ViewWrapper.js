@@ -10,16 +10,21 @@ function ViewWrapper(props) {
   }, [path]);
 
   if (path === "/") return null;
+  const collectionRelatedEndpoints = [
+    "estudios",
+    "edit",
+    "new",
+    "devocionales",
+    "predicaciones",
+  ];
 
   const getTailEndpoint = /\w*$/;
   const tail = getTailEndpoint.exec(path)[0];
-  document.body.style.backgroundColor =
-    tail !== "estudios" &&
-    tail !== "edit" &&
-    tail !== "new" &&
-    tail !== "devocionales"
-      ? "cornflowerblue"
-      : "azure";
+  document.body.style.backgroundColor = collectionRelatedEndpoints.includes(
+    tail
+  )
+    ? "azure"
+    : "cornflowerblue";
 
   return (
     <>
