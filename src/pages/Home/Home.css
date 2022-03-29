@@ -21,16 +21,22 @@
 
 .nav-link:hover {
   color: rgba(255, 255, 255, 0.5);
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  /* border-bottom-color: rgba(255, 255, 255, 0.5); */
 }
 
 .nav-link.active {
   color: white;
-  border-bottom-color: white;
+  /* border-bottom-color: white; */
 }
 
 .btn-secondary,
 .btn-secondary:hover {
   color: #333;
   text-shadow: none;
+}
+
+@media (max-height: 500px) {
+  .home-body {
+    height: fit-content;
+  }
 }
