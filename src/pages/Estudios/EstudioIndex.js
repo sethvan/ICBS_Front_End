@@ -10,6 +10,7 @@ class EstudioIndex extends Component {
   state = {
     devocionales: null,
     sermones: null,
+    predicaciones: null,
     isAdminView: false,
   };
 
@@ -21,6 +22,7 @@ class EstudioIndex extends Component {
       this.setState({
         devocionales: this.props.collections.devocionales,
         sermones: this.props.collections.sermones,
+        predicaciones: this.props.collections.predicaciones,
       });
     }
   }
@@ -34,6 +36,7 @@ class EstudioIndex extends Component {
       this.setState({
         devocionales: this.props.collections.devocionales,
         sermones: this.props.collections.sermones,
+        predicaciones: this.props.collections.predicaciones,
         isAdminView: this.props.collections.isAdminView,
       });
       this.props.updateAuth(this.props.collections.isAdminView);
@@ -51,6 +54,52 @@ class EstudioIndex extends Component {
 
     return (
       <div className="row d-flex">
+        <div className="col-xl-5 col-lg-6 col-12 mx-auto mt-0 mb-auto">
+          {this.state.isAdminView === true ? (
+            <>
+              <button
+                onClick={() => {
+                  this.props.history.push("/sermones/new");
+                }}
+                className="btn btn-success mb-3 d-block"
+              >
+                Crear Nuevo Sermón
+              </button>
+              <EstudioCard
+                collection={this.state.sermones}
+                displayCollection={this.displayCollection}
+              />
+            </>
+          ) : (
+            <EstudioCard
+              collection={this.state.sermones}
+              displayCollection={this.displayCollection}
+            />
+          )}
+        </div>
+        <div className="col-xl-5 col-lg-6 col-12 mx-auto mt-0 mb-auto">
+          {this.state.isAdminView === true ? (
+            <>
+              <button
+                onClick={() => {
+                  this.props.history.push("/predicaciones/new");
+                }}
+                className="btn btn-success mb-3 d-block"
+              >
+                Crear Nueva Predicacion Escrita
+              </button>
+              <EstudioCard
+                collection={this.state.predicaciones}
+                displayCollection={this.displayCollection}
+              />
+            </>
+          ) : (
+            <EstudioCard
+              collection={this.state.predicaciones}
+              displayCollection={this.displayCollection}
+            />
+          )}
+        </div>
         <div className=" col-xl-5 col-lg-6 col-12 mx-auto mt-0 mb-auto">
           {this.state.isAdminView === true ? (
             <>
@@ -70,30 +119,6 @@ class EstudioIndex extends Component {
           ) : (
             <EstudioCard
               collection={this.state.devocionales}
-              displayCollection={this.displayCollection}
-            />
-          )}
-        </div>
-
-        <div className="col-xl-5 col-lg-6 col-12 mx-auto mt-0 mb-auto">
-          {this.state.isAdminView === true ? (
-            <>
-              <button
-                onClick={() => {
-                  this.props.history.push("/sermones/new");
-                }}
-                className="btn btn-success mb-3 d-block"
-              >
-                Crear Nueva Predicacion
-              </button>
-              <EstudioCard
-                collection={this.state.sermones}
-                displayCollection={this.displayCollection}
-              />
-            </>
-          ) : (
-            <EstudioCard
-              collection={this.state.sermones}
               displayCollection={this.displayCollection}
             />
           )}

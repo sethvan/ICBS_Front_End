@@ -20,6 +20,7 @@ function View() {
           <Route exact path="/eventos/edit" component={EditorPage} />
           <Route exact path="/eventos" component={Rendered} />
           <Route exact path="/sermones/new" component={EditorPage} />
+          <Route exact path="/predicaciones/new" component={EditorPage} />
           <Route path="/estudios" component={EstudioRoutes} />
           <Route path="*" component={NotFound} />
         </Switch>

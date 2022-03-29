@@ -1,8 +1,32 @@
 import React, { Component } from "react";
 import "./QuienesSomos.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import retrieveCollections from "../../Actions/retrieveCollections";
+import { bindActionCreators } from "redux";
+import Spinner from "../../utilities/Spinner/Spinner";
 
 class QuienesSomos extends Component {
+  state = { ultimoSermon: null };
+
+  componentDidMount() {
+    if (this.props.collections === null) {
+      console.log("retrieving collections");
+      this.props.retrieveCollections();
+    } else {
+      this.setState({ ultimoSermon: this.props.collections.ultimoSermon });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.collections !== prevProps.collections ||
+      this.state.ultimoSermon === null
+    ) {
+      this.setState({ ultimoSermon: this.props.collections.ultimoSermon });
+    }
+  }
+
   render() {
     const adoracion1 =
       "https://live.staticflickr.com/65535/51936983389_aa23ca9d4c_b.jpg";
@@ -13,6 +37,11 @@ class QuienesSomos extends Component {
 
     const url =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.9683466269694!2d-105.28917898467606!3d21.548092975220918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8420b8ead4510ea3%3A0x78bc6220f9c622fa!2sMiguel%20Alem%C3%A1n%204%2C%20Benito%20Ju%C3%A1rez%2C%2063742%20San%20Blas%2C%20Nay.!5e0!3m2!1ses!2smx!4v1644364342383!5m2!1ses!2smx";
+
+    while (this.props.collections === null) {
+      return <Spinner />;
+    }
+
     return (
       <>
         <h1
@@ -34,18 +63,18 @@ class QuienesSomos extends Component {
           allowFullScreen=""
           loading="lazy"
         ></iframe>
-        <p className="conocenos-contenido">
+        <p className="conocenos-contenido mb-5">
           Nuestra fundación ocurrió el 3 de diciembre de 2009 y hasta la fecha
           nos reunimos para glorificar a Dios y llevar la buena noticia de
-          salvación a las personas. Si es tu primera visita, haz click{" "}
+          salvación a las personas. ¿Primera visita? ¡Haz click{" "}
           <Link
             style={{ color: "beige" }}
             to="/estudios/6227a86b555bce33f070ce67"
             className="bienvenidos-link"
           >
-            aqui!
+            AQUI!
           </Link>{" "}
-          y tambien estamos a tu disposicion via{" "}
+          , estamos a su disposicion via{" "}
           <a
             style={{ color: "beige" }}
             rel="noreferrer"
@@ -53,8 +82,16 @@ class QuienesSomos extends Component {
           >
             WhatsApp 323 134 1498
           </a>
-          {"."}
+          {", "}y tambien puede{" "}
+          <Link
+            style={{ color: "beige" }}
+            to={`${this.props.collections.ultimoSermon}`}
+          >
+            VER EL VIDEO DE PREDICACION MAS RECIEN
+          </Link>
+          .
         </p>
+
         <div className="container-fluid QS-Imagenes">
           <div className="row">
             <div className="col-sm-4 col-12 mb-2">
@@ -85,4 +122,18 @@ class QuienesSomos extends Component {
   }
 }
 
-export default QuienesSomos;
+function mapStateToProps(state) {
+  return {
+    collections: state.collections,
+  };
+}
+function mapDispatchToProps(dispatcher) {
+  return bindActionCreators(
+    {
+      retrieveCollections,
+    },
+    dispatcher
+  );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuienesSomos);
