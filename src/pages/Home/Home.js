@@ -9,14 +9,14 @@ class Home extends Component {
         <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header className="mb-auto">
             <div>
-              <h3 className="float-md-left mb-0">
+              <h3 className="float-md-left mb-3">
                 Iglesia Cristiana Bautista Sinaí
               </h3>
 
               <nav className="nav nav-masthead navbar-expand-xl navbar-dark justify-content-center float-md-right">
                 <button
                   id="hamburger"
-                  className="navbar-toggler"
+                  className="navbar-toggler mb-3"
                   type="button"
                   data-toggle="collapse"
                   data-target="#navbarHome"
