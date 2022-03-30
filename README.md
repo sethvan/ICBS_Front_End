@@ -11,8 +11,8 @@ from GitHub inside of Digital Ocean Droplet.
 This is my first MERN stack site of my own and first REACT app. Since it was in part an opportunity for learning  
 I used both class and function components. As well I used React Router 5 (it was what I learned with) and Redux.  
 
-Redux I used to authenticate admin and to limit unnecessary HTTP requests (specifically for the entirety of the  
-MongoDB collections) from the back end. Kind of overkill maybe but it irked me on the user side to see it being   
+Redux I used to authenticate admin and to limit unnecessary HTTP requests (specifically when for the entirety of the  
+MongoDB collections at a time) from the back end. Kind of overkill maybe but it irked me on the user side to see it being   
 done in different places multiple times when I could just use Redux to limit it, plus it was a learning opportunity.  
   
   
