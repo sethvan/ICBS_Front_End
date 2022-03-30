@@ -20,13 +20,13 @@ done in different places multiple times when I could just use Redux to limit it,
 <br/>
 <div >
   <img src="https://live.staticflickr.com/65535/51970688515_c10f24c543_c.jpg" height="550" width="250" >
-  <span>&emsp;&emsp;</span>
+  <span>&emsp;</span>
   <img src="https://live.staticflickr.com/65535/51969124382_23013b7e62_c.jpg" height="550" width="250" >
-  <span>&emsp;&emsp;</span>
+  <span>&emsp;</span>
   <img src="https://live.staticflickr.com/65535/51970125126_1363a5074b_c.jpg" height="550" width="250" >
-  <span>&emsp;&emsp;</span>
+  <span>&emsp;</span>
   <img src="https://live.staticflickr.com/65535/51969124702_5672f09eb1_c.jpg" height="550" width="250" >
-  <span>&emsp;&emsp;</span>
+  <span>&emsp;</span>
   <img src="https://live.staticflickr.com/65535/51970415374_2db0b20f20_c.jpg" height="550" width="250" >
 </div>
 
