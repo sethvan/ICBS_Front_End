@@ -11,11 +11,12 @@ function ViewWrapper(props) {
 
   if (path === "/") return null;
   const collectionRelatedEndpoints = [
-    "estudios",
-    "edit",
-    "new",
+    // "estudios",
+    // "edit",
+    // "new",
     "devocionales",
     "predicaciones",
+    "sermones",
   ];
 
   const getTailEndpoint = /\w*$/;
